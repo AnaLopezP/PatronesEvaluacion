@@ -32,33 +32,20 @@ class Factoria_concreta2(Analisis_datos_factory):
     
     
     
-#clase de un producto abstracto grafica 1
+#clase de un producto abstracto grafica 
 class Grafica(ABC):
     @abstractmethod
     def mostrar(self):
         pass
     
     
-'''#clase de un producto abstracto grtafica 2
-class Grafica_historiograma(ABC):
-    @abstractmethod
-    def mostrar(self):
-        pass'''
-
-#clase de un producto abstracto analisis 1
+#clase de un producto abstracto analisis
 class Analisis(ABC):
     @abstractmethod
     def mostrar(self):
         pass
-'''
-#clase de un producto abstracto analisis 2
-class Analisis_2(ABC):
-    @abstractmethod
-    def mostrar(self):
-        pass
-    '''
 
-#clase de un producto concreto grafica 1
+#clase de un producto concreto grafica de barras
 class grafica_debarras(Grafica):
     def mostrar(self, data):
         data['FECHA'] = to_datetime(data['FECHA'])
@@ -68,24 +55,15 @@ class grafica_debarras(Grafica):
         plt.title("Activaciones por mes")
         plt.show()
         
-#clase de un producto concreto grafica 1
+#clase de un producto concreto grafica histograma
 class grafica_histograma(Grafica):
     def mostrar(self, data):
         activaciones_por_tipo = data['TITULO'].value_counts()
         activaciones_por_tipo.plot(kind='bar', color="skyblue", edgecolor="black")
         plt.title("Historiograma de activaciones por tipo de emergencia")
         plt.show()
-        
-'''#clase de un producto concreto grtafica 2
-class grafica2_concreta1(Grafica_historiograma):
-    def mostrar(self):
-        print("Grafica historiograma tipo 1")
-        
-class grafica2_concreta2(Grafica_historiograma):
-    def mostrar(self):
-        print("Grafica 2 tipo 2")
-        '''
-#clase de un producto concreto
+
+#clase de un producto concreto analisis media
 class analisis_media(Analisis):
     def mostrar(self, data):
         data['FECHA'] = to_datetime(data['FECHA'])
@@ -93,7 +71,8 @@ class analisis_media(Analisis):
         activaciones_por_dia = data['DÍA'].value_counts().sort_index()
         print("Media de activaciones por dia: " + str(activaciones_por_dia.mean()))
         return activaciones_por_dia.mean()
-        
+
+#clase de un producto concreto analisis mediana
 class analisis1_mediana(Analisis):
     def mostrar(self, data):
         data['FECHA'] = to_datetime(data['FECHA'])
@@ -102,11 +81,3 @@ class analisis1_mediana(Analisis):
         print("Mediana de activaciones por dia: " + str(activaciones_por_dia.median()))
         return activaciones_por_dia.median()
               
-'''class analisis_moda(Analisis):
-    def mostrar(self):
-        print("Analisis moda")'''
-        
-'''class analisis2_concreta2(Analisis_2):
-    def mostrar(self):
-        print("Analisis 2")'''
-        
