@@ -14,21 +14,22 @@ class Analisis_datos_factory(ABC):
 class Factoria_concreta1(Analisis_datos_factory):
     @abstractmethod
     def crear_grafica(self):
-        return grafica1()
+        return grafica_debarras()
     
     @abstractmethod
     def crear_analisis(self):
-        return analisis1()
+        return analisis1_mediana()
     
 #clase de una factoria concreta
 class Factoria_concreta2(Analisis_datos_factory):
     @abstractmethod
     def crear_grafica(self):
-        return grafica2()
+        return grafica_histograma()
     
     @abstractmethod
     def crear_analisis(self):
-        return analisis2
+        return analisis_media()
+    
     
     
 #clase de un producto abstracto grafica 1
@@ -85,9 +86,9 @@ class analisis1_mediana(Analisis):
     def mostrar(self):
         print("Analisis mediana")
               
-class analisis_moda(Analisis):
+'''class analisis_moda(Analisis):
     def mostrar(self):
-        print("Analisis moda")
+        print("Analisis moda")'''
         
 '''class analisis2_concreta2(Analisis_2):
     def mostrar(self):
