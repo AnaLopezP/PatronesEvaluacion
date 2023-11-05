@@ -85,10 +85,13 @@ class CSV_Builder():
         with open('pizza.csv', 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Masa", "Salsa", "Ingrediente", "Tecnica", "Presentacion", "Extras", "Bebidas"])
-            writer.writerow([self._pizza.masa, self._pizza.salsa, self._pizza.ingrediente, self._pizza.tecnica, self._pizza.presentacion, self._pizza.extras, self._pizza.bebidas])
-    
+        file.close()
+        
     def añadir_pizza(self):
-        pass
+        with open('pizza.csv', 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([self._pizza.masa, self._pizza.salsa, self._pizza.ingrediente, self._pizza.tecnica, self._pizza.presentacion, self._pizza.extras, self._pizza.bebidas])
+        file.close()
 
 class PizzaDirector:
     def __init__(self, builder):
