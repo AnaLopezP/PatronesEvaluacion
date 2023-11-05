@@ -56,23 +56,39 @@ class Analisis_2(ABC):
         pass
     
 
-#clase de un producto concreto grtafica 1
-class grafica1_concreta(Grafica_1):
+#clase de un producto concreto grafica 1
+class grafica1_concreta1(Grafica_1):
     def mostrar(self):
-        print("Grafica 1")
+        print("Grafica 1 tipo 1")
+        
+#clase de un producto concreto grafica 1
+class grafica1_concreta2(Grafica_1):
+    def mostrar(self):
+        print("Grafica 1 tipo 2")
         
 #clase de un producto concreto grtafica 2
-class grafica2_concreta(Grafica_2):
+class grafica2_concreta1(Grafica_2):
     def mostrar(self):
-        print("Grafica 2")
+        print("Grafica 2 tipo 1")
+        
+class grafica2_concreta2(Grafica_2):
+    def mostrar(self):
+        print("Grafica 2 tipo 2")
         
 #clase de un producto concreto analisis 1
-class analisis1_concreta(Analisis_1):
+class analisis1_concreta1(Analisis_1):
     def mostrar(self):
-        print("Analisis 1")
-        
+        print("Analisis 1 tipo 1")
+class analisis1_concreta2(Analisis_1):
+    def mostrar(self):
+        print("Analisis 1 tipo 2")
+              
 #clase de un producto concreto analisis 2
-class analisis2_concreta(Analisis_2):
+class analisis2_concreta1(Analisis_2):
+    def mostrar(self):
+        print("Analisis 2")
+        
+class analisis2_concreta2(Analisis_2):
     def mostrar(self):
         print("Analisis 2")
         
