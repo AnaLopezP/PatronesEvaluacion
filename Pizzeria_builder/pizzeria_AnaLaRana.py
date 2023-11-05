@@ -142,8 +142,7 @@ if __name__ == "__main__":
     pizza = builder.pizza
     print(pizza)
     
-    
+    csv_builder = CSV_Builder()
     if not os.path.isfile('pizza.csv'):
-        csv_builder = CSV_Builder()
         csv_builder.crear_csv()
     csv_builder.añadir_pizza()
