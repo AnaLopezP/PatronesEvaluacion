@@ -20,10 +20,6 @@ class PizzaBuilder(ABC):
         pass
     
     @abstractmethod
-    def crear_tamano(self):
-        pass
-    
-    @abstractmethod
     def crear_tecnica(self):
         pass
     
@@ -39,3 +35,4 @@ class PizzaBuilder(ABC):
     def crear_bebidas(self):
         pass
     
+class 
