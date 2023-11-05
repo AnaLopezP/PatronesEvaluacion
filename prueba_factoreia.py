@@ -40,3 +40,13 @@ class Grafica_2(ABC):
     @abstractmethod
     def mostrar(self):
         pass
+
+class Analisis_1(ABC):
+    @abstractmethod
+    def mostrar(self):
+        pass
+    
+class Analisis_2(ABC):
+    @abstractmethod
+    def mostrar(self):
+        pass
