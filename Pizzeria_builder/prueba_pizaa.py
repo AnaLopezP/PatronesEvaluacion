@@ -41,7 +41,7 @@ class Pizza:
         self.reset()
     
     def reset(self):
-        self._pizza = Pizza()
+        self._pizza = Producto()
         
     @property
     def pizza(self):
@@ -80,6 +80,17 @@ class Pizza:
         bebidas = input("Bebida con la pizza: ")        
         self._pizza.add(bebidas)
         
+class Producto():
+    def __init__(self):
+        self._pizza = []
+        
+    def add(self, parte):
+        self._pizza.append(parte)
+        
+    def __str__(self):
+        return f"Partes de la pizza: {', '.join(self._pizza)}"        
+        
+
 class CSV_Builder():
     def crear_csv(self):
         with open('pizza.csv', 'w', newline='') as file:
@@ -113,3 +124,16 @@ class PizzaDirector:
     @builder.setter
     def builder(self, builder):
         self._builder = builder
+        
+if __name__ == "__main__":
+    print("Creando constructor de pizza...")
+    builder = Pizza()
+    print("Trayendo al camarero...")
+    director = PizzaDirector(builder)
+    director.crear_pizza()
+    pizza = builder.pizza
+    print(pizza)
+    
+    csv_builder = CSV_Builder()
+    csv_builder.crear_csv()
+    csv_builder.añadir_pizza()
