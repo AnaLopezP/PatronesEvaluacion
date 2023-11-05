@@ -61,8 +61,8 @@ class Analisis_2(ABC):
 #clase de un producto concreto grafica 1
 class grafica_debarras(Grafica):
     def mostrar(self, data):
-        data['FECHA_ACTIVACION'] = to_datetime(data['FECHA_ACTIVACION'])
-        data['MES'] = data['FECHA_ACTIVACION'].dt.month
+        data['FECHA'] = to_datetime(data['FECHA'])
+        data['MES'] = data['FECHA'].dt.month
         activaciones_por_mes = data['MES'].value_counts().sort_index()
         activaciones_por_mes.plot(kind='bar', color="skyblue", edgecolor="black")
         plt.title("Activaciones por mes")
@@ -71,7 +71,7 @@ class grafica_debarras(Grafica):
 #clase de un producto concreto grafica 1
 class grafica_histograma(Grafica):
     def mostrar(self, data):
-        activaciones_por_tipo = data['TIPO_EMERGENCIA'].value_counts()
+        activaciones_por_tipo = data['TITULO'].value_counts()
         activaciones_por_tipo.plot(kind='bar', color="skyblue", edgecolor="black")
         plt.title("Historiograma de activaciones por tipo de emergencia")
         plt.show()
@@ -87,17 +87,19 @@ class grafica2_concreta2(Grafica_historiograma):
         '''
 #clase de un producto concreto
 class analisis_media(Analisis):
-    def mostrar(self, datos):
-        data['FECHA_ACTIVACION'] = to_datetime(data['FECHA_ACTIVACION'])
-        data['DÍA'] = data['FECHA_ACTIVACION'].dt.day
-        activaciones_por_dia = data['DÏA'].value_counts().sort_index()
+    def mostrar(self, data):
+        data['FECHA'] = to_datetime(data['FECHA'])
+        data['DÍA'] = data['FECHA'].dt.day
+        activaciones_por_dia = data['DÍA'].value_counts().sort_index()
+        print("Media de activaciones por dia: " + str(activaciones_por_dia.mean()))
         return activaciones_por_dia.mean()
         
 class analisis1_mediana(Analisis):
-    def mostrar(self, datos):
-        data['FECHA_ACTIVACION'] = to_datetime(data['FECHA_ACTIVACION'])
-        data['DÍA'] = data['FECHA_ACTIVACION'].dt.day
-        activaciones_por_dia = data['DÏA'].value_counts().sort_index()
+    def mostrar(self, data):
+        data['FECHA'] = to_datetime(data['FECHA'])
+        data['DÍA'] = data['FECHA'].dt.day
+        activaciones_por_dia = data['DÍA'].value_counts().sort_index()
+        print("Mediana de activaciones por dia: " + str(activaciones_por_dia.median()))
         return activaciones_por_dia.median()
               
 '''class analisis_moda(Analisis):
