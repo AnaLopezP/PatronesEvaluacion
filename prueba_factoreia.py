@@ -12,21 +12,17 @@ class Analisis_datos_factory(ABC):
 
 #clase de una factoria concreta
 class Factoria_concreta1(Analisis_datos_factory):
-    @abstractmethod
     def crear_grafica(self):
         return grafica_debarras()
     
-    @abstractmethod
     def crear_analisis(self):
         return analisis1_mediana()
     
 #clase de una factoria concreta
 class Factoria_concreta2(Analisis_datos_factory):
-    @abstractmethod
     def crear_grafica(self):
         return grafica_histograma()
     
-    @abstractmethod
     def crear_analisis(self):
         return analisis_media()
     
