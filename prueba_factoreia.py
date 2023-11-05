@@ -1,6 +1,9 @@
 from abc import ABC, abstractmethod
 from pandas import *
 import matplotlib.pyplot as plt
+from lectura_csv import data
+
+
 #clase de la abstract factory
 class Analisis_datos_factory(ABC):
     @abstractmethod
@@ -84,12 +87,18 @@ class grafica2_concreta2(Grafica_historiograma):
         '''
 #clase de un producto concreto
 class analisis_media(Analisis):
-    def mostrar(self, datos, columna):
-        return datos[columna].mean()
+    def mostrar(self, datos):
+        data['FECHA_ACTIVACION'] = to_datetime(data['FECHA_ACTIVACION'])
+        data['DÍA'] = data['FECHA_ACTIVACION'].dt.day
+        activaciones_por_dia = data['DÏA'].value_counts().sort_index()
+        return activaciones_por_dia.mean()
         
 class analisis1_mediana(Analisis):
-    def mostrar(self, datos, columna):
-        return datos[columna].median()
+    def mostrar(self, datos):
+        data['FECHA_ACTIVACION'] = to_datetime(data['FECHA_ACTIVACION'])
+        data['DÍA'] = data['FECHA_ACTIVACION'].dt.day
+        activaciones_por_dia = data['DÏA'].value_counts().sort_index()
+        return activaciones_por_dia.median()
               
 '''class analisis_moda(Analisis):
     def mostrar(self):
@@ -102,8 +111,8 @@ class analisis1_mediana(Analisis):
 def cliente(factory: Analisis_datos_factory):
     grafica = factory.crear_grafica()
     analisis = factory.crear_analisis()
-    grafica.mostrar()
-    analisis.mostrar()
+    grafica.mostrar(data)
+    analisis.mostrar(data)
     
 
 if __name__ == "__main__":
