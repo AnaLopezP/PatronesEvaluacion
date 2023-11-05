@@ -36,17 +36,44 @@ class Grafica_1(ABC):
     def mostrar(self):
         pass
     
+    
+#clase de un producto abstracto grtafica 2
 class Grafica_2(ABC):
     @abstractmethod
     def mostrar(self):
         pass
 
+#clase de un producto abstracto analisis 1
 class Analisis_1(ABC):
     @abstractmethod
     def mostrar(self):
         pass
-    
+
+#clase de un producto abstracto analisis 2
 class Analisis_2(ABC):
     @abstractmethod
     def mostrar(self):
         pass
+    
+
+#clase de un producto concreto grtafica 1
+class grafica1_concreta(Grafica_1):
+    def mostrar(self):
+        print("Grafica 1")
+        
+#clase de un producto concreto grtafica 2
+class grafica2_concreta(Grafica_2):
+    def mostrar(self):
+        print("Grafica 2")
+        
+#clase de un producto concreto analisis 1
+class analisis1_concreta(Analisis_1):
+    def mostrar(self):
+        print("Analisis 1")
+        
+#clase de un producto concreto analisis 2
+class analisis2_concreta(Analisis_2):
+    def mostrar(self):
+        print("Analisis 2")
+        
+        
