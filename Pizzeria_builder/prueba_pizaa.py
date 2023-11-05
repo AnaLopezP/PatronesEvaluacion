@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import csv
+import os.path
 
 class PizzaBuilder(ABC):
     
@@ -140,7 +141,8 @@ if __name__ == "__main__":
     pizza = builder.pizza
     print(pizza)
     
-    csv_builder = CSV_Builder()
-    if "pizza.csv" == False:
+    
+    if not os.path.isfile('pizza.csv'):
+        csv_builder = CSV_Builder()
         csv_builder.crear_csv()
     csv_builder.añadir_pizza()
