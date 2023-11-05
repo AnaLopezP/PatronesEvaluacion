@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from pandas import *
 import matplotlib.pyplot as plt
-
 #clase de la abstract factory
 class Analisis_datos_factory(ABC):
     @abstractmethod
@@ -58,16 +57,20 @@ class Analisis_2(ABC):
 
 #clase de un producto concreto grafica 1
 class grafica_debarras(Grafica):
-    def mostrar(self, columna1, columna2):
-        plt.bar(columna1, columna2)
-        plt.title("Grafica de barras")
+    def mostrar(self, data):
+        data['FECHA_ACTIVACION'] = to_datetime(data['FECHA_ACTIVACION'])
+        data['MES'] = data['FECHA_ACTIVACION'].dt.month
+        activaciones_por_mes = data['MES'].value_counts().sort_index()
+        activaciones_por_mes.plot(kind='bar', color="skyblue", edgecolor="black")
+        plt.title("Activaciones por mes")
         plt.show()
         
 #clase de un producto concreto grafica 1
 class grafica_histograma(Grafica):
-    def mostrar(self, datos):
-        plt.hist(datos, bins= 20, color = "skyblue", edgecolor = "black", alpha=0.7)
-        plt.title("Histograma")
+    def mostrar(self, data):
+        activaciones_por_tipo = data['TIPO_EMERGENCIA'].value_counts()
+        activaciones_por_tipo.plot(kind='bar', color="skyblue", edgecolor="black")
+        plt.title("Historiograma de activaciones por tipo de emergencia")
         plt.show()
         
 '''#clase de un producto concreto grtafica 2
