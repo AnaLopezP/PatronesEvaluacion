@@ -94,4 +94,8 @@ class analisis1_mediana(Analisis):
     def mostrar(self):
         print("Analisis 2")'''
         
-        
+def cliente(factory: Analisis_datos_factory):
+    grafica = factory.crear_grafica()
+    analisis = factory.crear_analisis()
+    grafica.mostrar()
+    analisis.mostrar()
