@@ -1,4 +1,6 @@
 from abc import ABC, abstractmethod
+from pandas import *
+import matplotlib.pyplot as plt
 
 #clase de la abstract factory
 class Analisis_datos_factory(ABC):
@@ -56,13 +58,17 @@ class Analisis_2(ABC):
 
 #clase de un producto concreto grafica 1
 class grafica_debarras(Grafica):
-    def mostrar(self):
-        print("Grafica barras")
+    def mostrar(self, columna1, columna2):
+        plt.bar(columna1, columna2)
+        plt.title("Grafica de barras")
+        plt.show()
         
 #clase de un producto concreto grafica 1
 class grafica_histograma(Grafica):
-    def mostrar(self):
-        print("Grafica histograma")
+    def mostrar(self, datos):
+        plt.hist(datos, bins= 20, color = "skyblue", edgecolor = "black", alpha=0.7)
+        plt.title("Histograma")
+        plt.show()
         
 '''#clase de un producto concreto grtafica 2
 class grafica2_concreta1(Grafica_historiograma):
@@ -73,14 +79,14 @@ class grafica2_concreta2(Grafica_historiograma):
     def mostrar(self):
         print("Grafica 2 tipo 2")
         '''
-#clase de un producto concreto analisis 1
+#clase de un producto concreto
 class analisis_media(Analisis):
-    def mostrar(self):
-        print("Analisis media")
+    def mostrar(self, datos, columna):
+        return datos[columna].mean()
         
 class analisis1_mediana(Analisis):
-    def mostrar(self):
-        print("Analisis mediana")
+    def mostrar(self, datos, columna):
+        return datos[columna].median()
               
 '''class analisis_moda(Analisis):
     def mostrar(self):
