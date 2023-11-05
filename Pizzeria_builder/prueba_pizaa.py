@@ -41,44 +41,50 @@ class Pizza:
         self.reset()
     
     def reset(self):
-        self._pizza = Producto()
+        self.masa = ""
+        self.salsa = ""
+        self.ingrediente = []
+        self.tecnica = ""
+        self.presentacion = ""
+        self.extras = ""
+        self.bebidas = ""
         
     @property
     def pizza(self):
-        pizza = self._pizza
+        pizza = [self.masa, self.salsa, self.ingrediente, self.tecnica, self.presentacion, self.extras, self.bebidas]
         self.reset()
         return pizza
     
     def crear_masa(self):
         masa = input("Masa de la pizza: ")        
-        self._pizza.add(masa)
+        self.masa = masa
         
     def crear_salsa(self):
         salsa = input("Salsa de la pizza: ")        
-        self._pizza.add(salsa)
+        self.salsa = salsa
     
     def crear_ingrediente(self):
         respuesta = "si"
         while respuesta == "si":
             ingrediente = input("Ingrediente de la pizza: ")        
-            self._pizza.add(ingrediente)
+            self.ingrediente.append(ingrediente)
             respuesta = input("Desea agregar otro ingrediente? si/no: ")
     
     def crear_tecnica(self):
         tecnica = input("Tecnica de la pizza: ")        
-        self._pizza.add(tecnica)
+        self.tecnica = tecnica
         
     def crear_presentacion(self):
         presentacion = input("Presentacion de la pizza: ")        
-        self._pizza.add(presentacion)
+        self.presentacion = presentacion
     
     def crear_extras(self):
         extras = input("Extras de la pizza: ")        
-        self._pizza.add(extras)
+        self.extras = extras
     
     def crear_bebidas(self):
         bebidas = input("Bebida con la pizza: ")        
-        self._pizza.add(bebidas)
+        self.bebidas = bebidas
         
 class Producto():
     def __init__(self):
@@ -101,7 +107,7 @@ class CSV_Builder():
     def añadir_pizza(self):
         with open('pizza.csv', 'a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow([self._pizza.masa, self._pizza.salsa, self._pizza.ingrediente, self._pizza.tecnica, self._pizza.presentacion, self._pizza.extras, self._pizza.bebidas])
+            writer.writerow([pizza[0], pizza[1], pizza[2], pizza[3], pizza[4], pizza[5], pizza[6]])
         file.close()
 
 class PizzaDirector:
@@ -135,5 +141,6 @@ if __name__ == "__main__":
     print(pizza)
     
     csv_builder = CSV_Builder()
-    csv_builder.crear_csv()
+    if "pizza.csv" == False:
+        csv_builder.crear_csv()
     csv_builder.añadir_pizza()
