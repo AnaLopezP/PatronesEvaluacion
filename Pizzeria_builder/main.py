@@ -1,7 +1,12 @@
 from . import pizzeria_AnaLaRana
+from . import cliente
 import os
 def main():
-    print("Creando constructor de pizza...")
+    print("Haga un usuario para poder pedir su pizza:")
+    nombre = input("Nombre: ")
+    direccion = input("Dirección: ")
+    usuario = cliente.Usuario(nombre, direccion)
+    print("Bienvenido", usuario.nombre, "a la Pizzeria AnaLaRana" " ¿Es la dirección", usuario.direccion, "correcta?")
     builder = pizzeria_AnaLaRana.Pizza()
     print("Trayendo al camarero...")
     print("¡Benvenido a la Pizzeria AnaLaRana! Por favor, siga los pasos para crear su pizza. Tenemos TODO lo que se pueda imaginar (sin juzgar, todos tenemos gustos):")
