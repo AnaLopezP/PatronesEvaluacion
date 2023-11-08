@@ -105,7 +105,7 @@ class CSV_Builder():
             writer.writerow(["Masa", "Salsa", "Ingrediente", "Tecnica", "Presentacion", "Extras", "Bebidas"])
         file.close()
         
-    def añadir_pizza(self):
+    def añadir_pizza(self, pizza):
         with open('pizza.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([pizza[0], pizza[1], pizza[2], pizza[3], pizza[4], pizza[5], pizza[6]])
@@ -132,24 +132,3 @@ class PizzaDirector:
     def builder(self, builder):
         self._builder = builder
 
-if __name__ == "__main__":
-    print("Creando constructor de pizza...")
-    builder = Pizza()
-    print("Trayendo al camarero...")
-    print("¡Benvenido a la Pizzeria AnaLaRana! Por favor, siga los pasos para crear su pizza. Tenemos TODO lo que se pueda imaginar (sin juzgar, todos tenemos gustos):")
-    director = PizzaDirector(builder)
-    director.crear_pizza()
-    pizza = builder.pizza
-    print(pizza)
-    respuesta = input("¿Quiere pedir otra pizza?si/no: ")
-    while respuesta == "si":
-        director.crear_pizza()
-        pizza = builder.pizza
-        print(pizza)
-        respuesta = input("¿Quiere pedir otra pizza?si/no: ")
-    print("Gracias por su visita. ¡Que aproveche! (en la pizzería AnaLaRana no nos hacemos responsables de enfermedades estomacales ni de intoxicaciones alimentecias. Todo lo que pida el cliente es bajo su responsabilidad.)")
-    
-    csv_builder = CSV_Builder()
-    if not os.path.isfile('pizza.csv'):
-        csv_builder.crear_csv()
-    csv_builder.añadir_pizza()

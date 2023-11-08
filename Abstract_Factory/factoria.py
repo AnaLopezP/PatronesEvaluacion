@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from pandas import *
 import matplotlib.pyplot as plt
-from lectura_csv import data
+from . import lectura_csv
 
 
 #clase de la abstract factory

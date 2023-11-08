@@ -12,4 +12,4 @@ data = pd.read_csv(URL, sep=';', encoding='ISO-8859-1')
 
  
 
-print(data.head())  # Mostrar las primeras filas para visualizar los datos
+#print(data.head())  # Mostrar las primeras filas para visualizar los datos

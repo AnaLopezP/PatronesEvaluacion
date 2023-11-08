@@ -1,5 +1,5 @@
 from Abstract_Factory import main, factoria, cliente_factoria, lectura_csv
-import Pizzeria_builder.pizzeria_AnaLaRana as Pizzeria_builder
+import Pizzeria_builder.main as Pizzeria_builder_main
 
 
 
@@ -18,7 +18,7 @@ def iniciar():
 
         if decision == 2:
             print("Ejercicio 2: Pizzeria AnaLaRana Builder")
-            Pizzeria_builder.main()
+            Pizzeria_builder_main.main()
 
         if decision == 3:
             print('Saliendo')
