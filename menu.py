@@ -1,11 +1,11 @@
 from Abstract_Factory import main, factoria, cliente_factoria, lectura_csv
 import Pizzeria_builder.main as Pizzeria_builder_main
-
-
+import helpers
 
 def iniciar():
     while True:
-
+        helpers.limpiar_pantalla()
+        
         print("QUE EJERCICIO QUIERES VER:")
         print("[1] Ejercicio 1: Abstract Factory")
         print("[2] Ejercicio 2: Pizzeria AnaLaRana Builder")
