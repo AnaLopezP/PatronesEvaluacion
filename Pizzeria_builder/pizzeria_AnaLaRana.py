@@ -141,6 +141,13 @@ if __name__ == "__main__":
     director.crear_pizza()
     pizza = builder.pizza
     print(pizza)
+    respuesta = input("¿Quiere pedir otra pizza?si/no: ")
+    while respuesta == "si":
+        director.crear_pizza()
+        pizza = builder.pizza
+        print(pizza)
+        respuesta = input("¿Quiere pedir otra pizza?si/no: ")
+    print("Gracias por su visita. ¡Que aproveche! (en la pizzería AnaLaRana no nos hacemos responsables de enfermedades estomacales ni de intoxicaciones alimentecias. Todo lo que pida el cliente es bajo su responsabilidad.)")
     
     csv_builder = CSV_Builder()
     if not os.path.isfile('pizza.csv'):
