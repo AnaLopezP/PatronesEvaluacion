@@ -12,6 +12,7 @@ def iniciar():
         print("[3] Ninguno")
 
         decision = int(input("> "))
+        helpers.limpiar_pantalla()
         if decision == 1:
             print("Ejercicio 1: Abstract Factory")
             main.main()
