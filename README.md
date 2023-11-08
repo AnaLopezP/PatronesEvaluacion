@@ -1,4 +1,5 @@
 # PatronesEvaluacion
+link: https://github.com/AnaLopezP/PatronesEvaluacion
 # justificación de builder en la pizzería
 
 El patrón de diseo builder, que permite construir un producto paso a paso completamente personalizabe, es una buena opción para crear una pizzería debido a la naturaleza de las pizzas. Las razones son las siguientes: 
